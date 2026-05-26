@@ -1,0 +1,328 @@
+/* ========================================================= */
+/* 1. RESET DAN PENGATURAN DASAR                             */
+/* ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Font yang lebih bersih */
+}
+
+body {
+    background-color: #F3F1EC; /* Latar belakang krem lembut khas dinding museum premium */
+    color: #475569; /* Teks slate-grey tua agar tidak kaku */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.3s ease; 
+}
+
+/* ========================================================= */
+/* 2. LAYOUT UTAMA DENGAN SUDUT MEMBULAT (ROUNDED)          */
+/* ========================================================= */
+.container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #FFFFFF;
+    border-radius: 20px; /* Sudut membulat yang lebih besar agar terlihat lembut */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); /* Bayangan yang lebih luas dan lembut */
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    overflow: hidden; /* Menjaga agar elemen di dalam tidak keluar dari radius */
+}
+
+.main-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+/* ========================================================= */
+/* 3. GAYA HEADER YANG LEBIH MINIMALIS                       */
+/* ========================================================= */
+.header {
+    background-color: #FFFFFF;
+    padding: 40px 20px; /* Padding lebih besar untuk kesan "napas" */
+    text-align: center;
+    border-bottom: 1px solid #E2E8F0; /* Garis tipis slate-grey pucat */
+}
+
+.header h1 {
+    color: #1E293B; /* Slate-grey gelap */
+    font-size: 36px; /* Lebih besar dan berani */
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #64748B; /* Slate-grey sedang */
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px; /* Sedikit jarak antar huruf agar elegan */
+}
+
+/* ========================================================= */
+/* 4. GAYA SIDEBAR DENGAN MENU TOMBOL BERBENTUK PIL         */
+/* ========================================================= */
+.sidebar {
+    width: 250px;
+    background-color: #FAFAFA;
+    padding: 30px 20px;
+    border-right: 1px solid #E2E8F0;
+    display: flex; 
+    flex-direction: column;
+}
+
+.sidebar ul {
+    list-style: none;
+    flex: 1; 
+}
+
+.sidebar ul li {
+    margin-bottom: 10px; /* Jarak antar menu lebih besar */
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #64748B;
+    font-size: 16px;
+    display: flex; 
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 50px; /* MENU BERBENTUK PIL (Full Rounded) */
+    transition: all 0.3s ease;
+}
+
+/* Efek saat menu di-hover atau aktif (Pengganti warna merah tua tajam) */
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+    background-color: #EBF0F5; /* Sorotan slate-grey pucat */
+    color: #1E293B;
+    font-weight: 600;
+}
+
+/* ========================================================= */
+/* 5. GAYA KONTEN UTAMA                                      */
+/* ========================================================= */
+.content {
+    flex: 1;
+    padding: 40px;
+    background-color: #FFFFFF;
+}
+
+.content-section h2 {
+    margin-bottom: 20px;
+    color: #334155; /* Slate-grey gelap */
+    font-weight: 600;
+}
+
+.content-section p {
+    line-height: 1.8; /* Jarak antar baris lebih lebar agar mudah dibaca */
+    color: #475569;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ========================================================= */
+/* 6. GAYA GAMBAR PROFIL ELEGANT                            */
+/* ========================================================= */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content img.foto-profil-web {
+    max-width: 100%;
+    margin: 25px 0;
+    border-radius: 15px; /* Sudut membulat pada gambar */
+    border: none; /* Menghapus border putih tebal lama */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Bayangan gambar yang lebih lembut */
+}
+
+/* ========================================================= */
+/* 7. KOTAK INFO (INFO BOX) YANG LEBIH HALUS                */
+/* ========================================================= */
+.info-box {
+    margin-top: 30px; 
+    padding: 20px; 
+    background-color: #F1F5F9; /* Slate-grey sangat pucat */
+    border-left: 4px solid #475569; 
+    border-radius: 8px; /* Sudut sedikit membulat */
+    color: #475569;
+}
+
+/* ========================================================= */
+/* 8. GAYA FOOTER YANG LEBIH BERSIH                          */
+/* ========================================================= */
+.footer {
+    background-color: #FAFAFA;
+    color: #94A3B8; /* Slate-grey pucat */
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #E2E8F0;
+    font-size: 14px;
+}
+
+/* ========================================================= */
+/* 9. ANIMASI FADE-IN SAAT KLIK MENU                         */
+/* ========================================================= */
+@keyframes fadeInEffect {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-section {
+    animation: fadeInEffect 0.6s ease-out forwards;
+}
+
+/* ========================================================= */
+/* 10. FITUR DARK MODE (SKEMA WARNA MIDNIGHT BLUE)            */
+/* ========================================================= */
+.btn-dark-mode {
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px;
+    background-color: #E2E8F0; /* Slate pucat di mode terang */
+    color: #1E293B;
+    border: none;
+    border-radius: 50px; /* TOMBOL BERBENTUK PIL */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-dark-mode:hover {
+    background-color: #CBD5E1; /* Slate sedikit lebih gelap */
+}
+
+/* Mulai menimpa warna terang menjadi gelap (Midnight Blue) */
+body.dark-mode {
+    background-color: #0F172A; /* Midnight Blue (Biru dongker sangat gelap) */
+}
+
+/* Ubah Kotak Kontainer menjadi abu-abu gelap kebiruan */
+body.dark-mode .container,
+body.dark-mode .content {
+    background-color: #1E293B;
+    border-color: #334155; 
+}
+
+body.dark-mode .header {
+    background: none; 
+    background-color: #1E293B; 
+    border-bottom: 1px solid #334155;
+}
+
+body.dark-mode .header h1,
+body.dark-mode .content-section h2,
+body.dark-mode .content-section h3 {
+    color: #F8FAFC; 
+}
+
+body.dark-mode p,
+body.dark-mode ul,
+body.dark-mode .header p,
+body.dark-mode .footer {
+    color: #94A3B8; 
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .footer {
+    background-color: #1E293B;
+    border-color: #334155;
+}
+
+body.dark-mode .sidebar ul li a {
+    color: #94A3B8; 
+}
+
+/* Warna Sorotan di Mode Gelap (Pengganti sorotan merah tua tajam) */
+body.dark-mode .sidebar ul li a:hover,
+body.dark-mode .sidebar ul li a.active {
+    background-color: #334155; /* Slate sedang */
+    color: #F8FAFC;
+    font-weight: 600;
+}
+
+body.dark-mode .btn-dark-mode {
+    background-color: #0F172A;
+    color: #F8FAFC;
+    border: 1px solid #334155;
+}
+
+body.dark-mode .btn-dark-mode:hover {
+    background-color: #334155;
+}
+
+body.dark-mode .info-box {
+    background-color: #0F172A; 
+    border-left: 4px solid #64748B; 
+    color: #94A3B8;
+}
+
+body.dark-mode .info-box strong {
+    color: #F8FAFC; 
+}
+
+/* ========================================================= */
+/* 11. RESPONSIVE / TAMPILAN LAYAR HP (MOBILE GRID)           */
+/* ========================================================= */
+@media screen and (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column; /* Mengubah grid kiri-kanan menjadi bertumpuk */
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #E2E8F0;
+        padding: 20px 15px;
+    }
+
+    /* Penyesuaian garis sidebar di HP saat Dark Mode */
+    body.dark-mode .sidebar {
+        border-bottom: 1px solid #334155;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: center;
+        gap: 8px; /* Jarak antar tombol di Mobile */
+        flex-wrap: wrap; /* Jika layar terlalu kecil, menu akan turun ke baris baru */
+    }
+
+    .sidebar ul li {
+        margin-bottom: 0;
+    }
+
+    .sidebar ul li a {
+        padding: 10px 15px;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 8px; /* Di HP, gunakan rounded biasa agar hemat ruang */
+    }
+
+    .content {
+        padding: 25px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+    
+    .btn-dark-mode {
+        margin-top: 15px;
+    }
+}
